@@ -1,0 +1,22 @@
+<jaxb:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+               xmlns:s="http://www.w3.org/2001/XMLSchema"
+               xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+               xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
+               jaxb:extensionBindingPrefixes="annox" xmlns:annox="http://annox.dev.java.net" version="2.1">
+
+    <jaxb:bindings schemaLocation="schema.wsdl" node="/wsdl:definitions/wsdl:types/s:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="ro.projectx.model.speedex.wsdl"/>
+        </jaxb:schemaBindings>
+        <jaxb:bindings multiple="true" node="//s:complexType">
+            <annox:annotate>@lombok.NoArgsConstructor</annox:annotate>
+            <annox:annotate>@lombok.AllArgsConstructor</annox:annotate>
+            <annox:annotate>@lombok.Builder</annox:annotate>
+            <annox:annotate>@lombok.Getter</annox:annotate>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+
+</jaxb:bindings>

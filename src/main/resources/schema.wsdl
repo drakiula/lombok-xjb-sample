@@ -1,0 +1,1350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="https://spdxws.gr/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  targetNamespace="https://spdxws.gr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <s:schema elementFormDefault="qualified" targetNamespace="https://spdxws.gr/">
+            <s:element name="CancelBOL">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="voucherID" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="CancelBOLResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="returnCode" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="returnMessage" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="CancelBOLandOrder">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="voucherID" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="orderId" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="CancelBOLandOrderResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="returnCode" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="returnMessage" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="CreateBOL">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="inListPod" type="tns:ArrayOfBOL"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="tableFlag" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfBOL">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="BOL" nillable="true" type="tns:BOL"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="BOL">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="_cust_Flag" type="s:int"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="BranchBankCode" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Comments_2853_1" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Comments_2853_2" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Comments_2853_3" type="s:string"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="Items" type="s:int"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Paratiriseis_2853_1" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Paratiriseis_2853_2" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Paratiriseis_2853_3" type="s:string"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="PayCode_Flag" type="s:int"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="Pod_Amount_Cash" type="s:double"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Pod_Amount_Description" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="RCV_Addr1" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="RCV_Country" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="RCV_Name" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="RCV_Tel1" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="RCV_Zip_Code" type="s:string"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="Saturday_Delivery" type="s:int"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="Security_Value" type="s:int"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Snd_agreement_id" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="SND_Customer_Id" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Time_Limit" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="voucher_code" type="s:string"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="Voucher_Weight" type="s:double"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="CreateBOLResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="outListPod" type="tns:ArrayOfBOL"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="statusList" type="tns:ArrayOfString"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="returnCode" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="returnMessage" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfString">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="CreateBOLwithOrder">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="inListPod" type="tns:ArrayOfBOLOrder"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="tableFlag" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfBOLOrder">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="BOLOrder" nillable="true" type="tns:BOLOrder"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="BOLOrder">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="_cust_Flag" type="s:int"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="BranchBankCode" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="charge_agreement_id" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="charge_Customer_Id" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Comments_2853_1" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Comments_2853_2" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Comments_2853_3" type="s:string"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="Items" type="s:int"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="orderid" type="s:string"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="orderPickupDate" type="s:dateTime"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="orderPickupTimeFrom" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="orderPickupTimeto" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Paratiriseis_2853_1" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Paratiriseis_2853_2" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Paratiriseis_2853_3" type="s:string"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="PayCode_Flag" type="s:int"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="Pod_Amount_Cash" type="s:double"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Pod_Amount_Description" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="RCV_Addr1" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="RCV_Country" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="RCV_Name" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="RCV_Tel1" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="RCV_Zip_Code" type="s:string"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="Saturday_Delivery" type="s:int"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="Security_Value" type="s:int"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="SND_Addr1" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="SND_Name" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="SND_Tel1" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="SND_Zip_Code" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Time_Limit" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="voucher_code" type="s:string"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="Voucher_Weight" type="s:double"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="CreateBOLwithOrderResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="outListPod" type="tns:ArrayOfBOLOrder"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="statusList" type="tns:ArrayOfString"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="returnCode" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="returnMessage" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="CreateSession">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="CreateSessionResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="sessionId" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="returnCode" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="returnMessage" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetBOLPdf">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="voucherIDs" type="tns:ArrayOfString"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="perVoucher" type="s:boolean"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="paperType" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetBOLPdfResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetBOLPdfResult" type="tns:ArrayOfVoucher"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="returnCode" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="returnMessage" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfVoucher">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="Voucher" nillable="true" type="tns:Voucher"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="Voucher">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="pdf" type="s:base64Binary"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="VoucherID" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="GetBOLSummaryPdf">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="beginDate" type="s:dateTime"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetBOLSummaryPdfResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetBOLSummaryPdfResult" type="s:base64Binary"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="returnCode" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="returnMessage" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetBranches">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="zipCode" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="area" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="language" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetBranchesResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Branches" type="tns:ArrayOfBranch"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="returnCode" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="returnMessage" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfBranch">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="Branch" nillable="true" type="tns:Branch"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="Branch">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="BranchAddress" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="BranchCity" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="BranchCode" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="BranchName" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="BranchTelephone" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="BranchZipcode" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="pointX" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="pointY" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="GetLastCheckpoint">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="VoucherID" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetLastCheckpointResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="checkpoint" type="tns:Checkpoint"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="returnCode" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="returnMessage" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="Checkpoint">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="Branch" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="BranchID" type="s:string"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="CheckpointDate" nillable="true" type="s:dateTime"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="ClientComments1" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="ClientRef1" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="ClientRef2" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="ClientRef3" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="SpeedexComments1" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="StatusCode" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="StatusDesc" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="VoucherID" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="GetOrderLastCheckpoint">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="orderid" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetOrderLastCheckpointResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Ordercheckpoint" type="tns:OrderCheckPoint"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="returnCode" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="returnMessage" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="OrderCheckPoint">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="Branch" type="s:string"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="CheckpointDate" nillable="true" type="s:dateTime"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="orderID" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="StatusCode" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="StatusDesc" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="GetTraceByClientKey">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="ClientKey1" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="ClientKey2" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="ClientKey3" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetTraceByClientKeyResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="checkpoints" type="tns:ArrayOfCheckpoint"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="returnCode" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="returnMessage" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfCheckpoint">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="Checkpoint" nillable="true" type="tns:Checkpoint"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="GetTraceByDate">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="dateFrom" type="s:dateTime"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="dateTo" type="s:dateTime"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetTraceByDateResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="checkpoints" type="tns:ArrayOfCheckpoint"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="returnCode" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="returnMessage" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetTraceByVoucher">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="VoucherID" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetTraceByVoucherResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="checkpoints" type="tns:ArrayOfCheckpoint"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="returnCode" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="returnMessage" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="DestroySession">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="DestroySessionResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="returnCode" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="returnMessage" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetCODByVoucher">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="SearchCode" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="typeofSearch" type="s:int"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetCODByVoucherResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="VoucherCods" type="tns:ArrayOfVoucherCod"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="returnCode" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="returnMessage" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfVoucherCod">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="VoucherCod" nillable="true" type="tns:VoucherCod"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="VoucherCod">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="CashValue" nillable="true" type="s:double"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="ChequeValue" nillable="true" type="s:double"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="ClientRef1" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="ClientRef2" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="ClientRef3" type="s:string"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="DeliveryDate" nillable="true" type="s:dateTime"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="DepositDate" nillable="true" type="s:dateTime"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="isReturned" nillable="true" type="s:int"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="MoneyCollected" nillable="true" type="s:int"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="MoneyDeposited" nillable="true" type="s:int"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="Return_Date" nillable="true" type="s:dateTime"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="ShippingDate" nillable="true" type="s:dateTime"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="VoucherID" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="GetVoucherFromCustomerKey">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="customerKey" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetVoucherFromCustomerKeyResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="voucher_code" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="returnCode" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="returnMessage" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetVoucherPOD">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="voucherIDs" type="tns:ArrayOfString"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetVoucherPODResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetVoucherPODResult" type="tns:ArrayOfVoucherPNG"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="returnCode" type="s:int"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="returnMessage" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfVoucherPNG">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="VoucherPNG" nillable="true" type="tns:VoucherPNG"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="VoucherPNG">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="png" type="s:base64Binary"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="VoucherID" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="CancelPickup">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="pickupNumber" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="CancelPickupResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="CancelPickupResult" type="tns:CancelPickupResult"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="CancelPickupResult">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="CreatePickup">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="consignmentNumbers" type="tns:ArrayOfString"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="pickupCustomerComments" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="pickupDate" type="s:dateTime"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="pickupTimeFrom" type="s:dateTime"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="pickupTimeTo" type="s:dateTime"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="CreatePickupResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="CreatePickupResult" type="tns:CreatePickupResult"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="CreatePickupResult">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Result" type="s:string"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="GetConsignmentsByDate">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="dateFrom" type="s:dateTime"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="dateTo" type="s:dateTime"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetConsignmentsByDateResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetConsignmentsByDateResult" type="tns:GetConsignmentsByDateResult"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="GetConsignmentsByDateResult">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Result" type="tns:ArrayOfConsignment"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="ArrayOfConsignment">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="Consignment" nillable="true" type="tns:Consignment"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="Consignment">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="BenchWeight" type="s:float"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Charge" type="s:string"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="CollectOnDeliveryCashAmount" type="s:decimal"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="CollectOnDeliveryCheckAmount" type="s:decimal"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="CustomerAgreementCode" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="CustomerCostCenterCode" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="CustomerReference1" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="CustomerReference2" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="CustomerReference3" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="DeliveryAddress" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="DeliveryCity" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="DeliveryCountryCode" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="DeliveryCustomerComments" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="DeliveryName" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="DeliveryPhoneNumber" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="DeliveryPostCode" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="DeliveryTimeFrom" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="DeliveryTimeTo" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="EventCode" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="EventGroupCode" type="s:string"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="InsuranceAmount" type="s:decimal"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="IsReturn" type="s:boolean"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="IsSaturdayDelivery" type="s:boolean"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="MasterConsignmentNumber" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="PickupAddress" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="PickupCity" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="PickupCountryCode" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="PickupName" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="PickupPhoneNumber" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="PickupPostCode" type="s:string"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="TotalNumberOfParcels" type="s:int"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="GetDepositedConsignmentsByDate">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="dateFrom" type="s:dateTime"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="dateTo" type="s:dateTime"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetDepositedConsignmentsByDateResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetDepositedConsignmentsByDateResult" type="tns:GetDepositedConsignmentsByDateResult"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="GetDepositedConsignmentsByDateResult">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Result" type="tns:ArrayOfConsignmentCollectOnDelivery"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="ArrayOfConsignmentCollectOnDelivery">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="ConsignmentCollectOnDelivery" nillable="true" type="tns:ConsignmentCollectOnDelivery"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="ConsignmentCollectOnDelivery">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="ConsignmentNumber" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Date" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="GetPickup">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="pickupNumber" type="s:string"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetPickupResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetPickupResult" type="tns:GetPickupResult"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="GetPickupResult">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Result" type="tns:Pickup"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int"/>
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="Pickup">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="ConsignmentNumbers" type="tns:ArrayOfString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="EventCode" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="EventGroupCode" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="PickupAddress" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="PickupCity" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="PickupCountryCode" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="PickupCustomerComments" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="PickupDate" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="PickupName" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="PickupPhoneNumber" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="PickupPostCode" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="PickupTimeFrom" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="PickupTimeTo" type="s:string"/>
+                </s:sequence>
+            </s:complexType>
+            <s:element name="ReschedulePickup">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="pickupCustomerComments" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="pickupDate" type="s:dateTime"/>
+                        <s:element minOccurs="0" maxOccurs="1" name="pickupNumber" type="s:string"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="pickupTimeFrom" type="s:dateTime"/>
+                        <s:element minOccurs="1" maxOccurs="1" name="pickupTimeTo" type="s:dateTime"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="ReschedulePickupResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="ReschedulePickupResult" type="tns:ReschedulePickupResult"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ReschedulePickupResult">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean"/>
+                    <s:element minOccurs="1" maxOccurs="1" name="StatusCode" type="s:int"/>
+                </s:sequence>
+            </s:complexType>
+        </s:schema>
+    </wsdl:types>
+    <wsdl:message name="CancelBOLSoapIn">
+        <wsdl:part name="parameters" element="tns:CancelBOL"/>
+    </wsdl:message>
+    <wsdl:message name="CancelBOLSoapOut">
+        <wsdl:part name="parameters" element="tns:CancelBOLResponse"/>
+    </wsdl:message>
+    <wsdl:message name="CancelBOLandOrderSoapIn">
+        <wsdl:part name="parameters" element="tns:CancelBOLandOrder"/>
+    </wsdl:message>
+    <wsdl:message name="CancelBOLandOrderSoapOut">
+        <wsdl:part name="parameters" element="tns:CancelBOLandOrderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="CreateBOLSoapIn">
+        <wsdl:part name="parameters" element="tns:CreateBOL"/>
+    </wsdl:message>
+    <wsdl:message name="CreateBOLSoapOut">
+        <wsdl:part name="parameters" element="tns:CreateBOLResponse"/>
+    </wsdl:message>
+    <wsdl:message name="CreateBOLwithOrderSoapIn">
+        <wsdl:part name="parameters" element="tns:CreateBOLwithOrder"/>
+    </wsdl:message>
+    <wsdl:message name="CreateBOLwithOrderSoapOut">
+        <wsdl:part name="parameters" element="tns:CreateBOLwithOrderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="CreateSessionSoapIn">
+        <wsdl:part name="parameters" element="tns:CreateSession"/>
+    </wsdl:message>
+    <wsdl:message name="CreateSessionSoapOut">
+        <wsdl:part name="parameters" element="tns:CreateSessionResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetBOLPdfSoapIn">
+        <wsdl:part name="parameters" element="tns:GetBOLPdf"/>
+    </wsdl:message>
+    <wsdl:message name="GetBOLPdfSoapOut">
+        <wsdl:part name="parameters" element="tns:GetBOLPdfResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetBOLSummaryPdfSoapIn">
+        <wsdl:part name="parameters" element="tns:GetBOLSummaryPdf"/>
+    </wsdl:message>
+    <wsdl:message name="GetBOLSummaryPdfSoapOut">
+        <wsdl:part name="parameters" element="tns:GetBOLSummaryPdfResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetBranchesSoapIn">
+        <wsdl:part name="parameters" element="tns:GetBranches"/>
+    </wsdl:message>
+    <wsdl:message name="GetBranchesSoapOut">
+        <wsdl:part name="parameters" element="tns:GetBranchesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetLastCheckpointSoapIn">
+        <wsdl:part name="parameters" element="tns:GetLastCheckpoint"/>
+    </wsdl:message>
+    <wsdl:message name="GetLastCheckpointSoapOut">
+        <wsdl:part name="parameters" element="tns:GetLastCheckpointResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetOrderLastCheckpointSoapIn">
+        <wsdl:part name="parameters" element="tns:GetOrderLastCheckpoint"/>
+    </wsdl:message>
+    <wsdl:message name="GetOrderLastCheckpointSoapOut">
+        <wsdl:part name="parameters" element="tns:GetOrderLastCheckpointResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetTraceByClientKeySoapIn">
+        <wsdl:part name="parameters" element="tns:GetTraceByClientKey"/>
+    </wsdl:message>
+    <wsdl:message name="GetTraceByClientKeySoapOut">
+        <wsdl:part name="parameters" element="tns:GetTraceByClientKeyResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetTraceByDateSoapIn">
+        <wsdl:part name="parameters" element="tns:GetTraceByDate"/>
+    </wsdl:message>
+    <wsdl:message name="GetTraceByDateSoapOut">
+        <wsdl:part name="parameters" element="tns:GetTraceByDateResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetTraceByVoucherSoapIn">
+        <wsdl:part name="parameters" element="tns:GetTraceByVoucher"/>
+    </wsdl:message>
+    <wsdl:message name="GetTraceByVoucherSoapOut">
+        <wsdl:part name="parameters" element="tns:GetTraceByVoucherResponse"/>
+    </wsdl:message>
+    <wsdl:message name="DestroySessionSoapIn">
+        <wsdl:part name="parameters" element="tns:DestroySession"/>
+    </wsdl:message>
+    <wsdl:message name="DestroySessionSoapOut">
+        <wsdl:part name="parameters" element="tns:DestroySessionResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetCODByVoucherSoapIn">
+        <wsdl:part name="parameters" element="tns:GetCODByVoucher"/>
+    </wsdl:message>
+    <wsdl:message name="GetCODByVoucherSoapOut">
+        <wsdl:part name="parameters" element="tns:GetCODByVoucherResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetVoucherFromCustomerKeySoapIn">
+        <wsdl:part name="parameters" element="tns:GetVoucherFromCustomerKey"/>
+    </wsdl:message>
+    <wsdl:message name="GetVoucherFromCustomerKeySoapOut">
+        <wsdl:part name="parameters" element="tns:GetVoucherFromCustomerKeyResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetVoucherPODSoapIn">
+        <wsdl:part name="parameters" element="tns:GetVoucherPOD"/>
+    </wsdl:message>
+    <wsdl:message name="GetVoucherPODSoapOut">
+        <wsdl:part name="parameters" element="tns:GetVoucherPODResponse"/>
+    </wsdl:message>
+    <wsdl:message name="CancelPickupSoapIn">
+        <wsdl:part name="parameters" element="tns:CancelPickup"/>
+    </wsdl:message>
+    <wsdl:message name="CancelPickupSoapOut">
+        <wsdl:part name="parameters" element="tns:CancelPickupResponse"/>
+    </wsdl:message>
+    <wsdl:message name="CreatePickupSoapIn">
+        <wsdl:part name="parameters" element="tns:CreatePickup"/>
+    </wsdl:message>
+    <wsdl:message name="CreatePickupSoapOut">
+        <wsdl:part name="parameters" element="tns:CreatePickupResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetConsignmentsByDateSoapIn">
+        <wsdl:part name="parameters" element="tns:GetConsignmentsByDate"/>
+    </wsdl:message>
+    <wsdl:message name="GetConsignmentsByDateSoapOut">
+        <wsdl:part name="parameters" element="tns:GetConsignmentsByDateResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetDepositedConsignmentsByDateSoapIn">
+        <wsdl:part name="parameters" element="tns:GetDepositedConsignmentsByDate"/>
+    </wsdl:message>
+    <wsdl:message name="GetDepositedConsignmentsByDateSoapOut">
+        <wsdl:part name="parameters" element="tns:GetDepositedConsignmentsByDateResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetPickupSoapIn">
+        <wsdl:part name="parameters" element="tns:GetPickup"/>
+    </wsdl:message>
+    <wsdl:message name="GetPickupSoapOut">
+        <wsdl:part name="parameters" element="tns:GetPickupResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ReschedulePickupSoapIn">
+        <wsdl:part name="parameters" element="tns:ReschedulePickup"/>
+    </wsdl:message>
+    <wsdl:message name="ReschedulePickupSoapOut">
+        <wsdl:part name="parameters" element="tns:ReschedulePickupResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="AccessPointSoap">
+        <wsdl:operation name="CancelBOL">
+            <wsdl:input message="tns:CancelBOLSoapIn"/>
+            <wsdl:output message="tns:CancelBOLSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="CancelBOLandOrder">
+            <wsdl:input message="tns:CancelBOLandOrderSoapIn"/>
+            <wsdl:output message="tns:CancelBOLandOrderSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="CreateBOL">
+            <wsdl:input message="tns:CreateBOLSoapIn"/>
+            <wsdl:output message="tns:CreateBOLSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="CreateBOLwithOrder">
+            <wsdl:input message="tns:CreateBOLwithOrderSoapIn"/>
+            <wsdl:output message="tns:CreateBOLwithOrderSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="CreateSession">
+            <wsdl:input message="tns:CreateSessionSoapIn"/>
+            <wsdl:output message="tns:CreateSessionSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetBOLPdf">
+            <wsdl:input message="tns:GetBOLPdfSoapIn"/>
+            <wsdl:output message="tns:GetBOLPdfSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetBOLSummaryPdf">
+            <wsdl:input message="tns:GetBOLSummaryPdfSoapIn"/>
+            <wsdl:output message="tns:GetBOLSummaryPdfSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetBranches">
+            <wsdl:input message="tns:GetBranchesSoapIn"/>
+            <wsdl:output message="tns:GetBranchesSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetLastCheckpoint">
+            <wsdl:input message="tns:GetLastCheckpointSoapIn"/>
+            <wsdl:output message="tns:GetLastCheckpointSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetOrderLastCheckpoint">
+            <wsdl:input message="tns:GetOrderLastCheckpointSoapIn"/>
+            <wsdl:output message="tns:GetOrderLastCheckpointSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetTraceByClientKey">
+            <wsdl:input message="tns:GetTraceByClientKeySoapIn"/>
+            <wsdl:output message="tns:GetTraceByClientKeySoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetTraceByDate">
+            <wsdl:input message="tns:GetTraceByDateSoapIn"/>
+            <wsdl:output message="tns:GetTraceByDateSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetTraceByVoucher">
+            <wsdl:input message="tns:GetTraceByVoucherSoapIn"/>
+            <wsdl:output message="tns:GetTraceByVoucherSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="DestroySession">
+            <wsdl:input message="tns:DestroySessionSoapIn"/>
+            <wsdl:output message="tns:DestroySessionSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetCODByVoucher">
+            <wsdl:input message="tns:GetCODByVoucherSoapIn"/>
+            <wsdl:output message="tns:GetCODByVoucherSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetVoucherFromCustomerKey">
+            <wsdl:input message="tns:GetVoucherFromCustomerKeySoapIn"/>
+            <wsdl:output message="tns:GetVoucherFromCustomerKeySoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetVoucherPOD">
+            <wsdl:input message="tns:GetVoucherPODSoapIn"/>
+            <wsdl:output message="tns:GetVoucherPODSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="CancelPickup">
+            <wsdl:input message="tns:CancelPickupSoapIn"/>
+            <wsdl:output message="tns:CancelPickupSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="CreatePickup">
+            <wsdl:input message="tns:CreatePickupSoapIn"/>
+            <wsdl:output message="tns:CreatePickupSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetConsignmentsByDate">
+            <wsdl:input message="tns:GetConsignmentsByDateSoapIn"/>
+            <wsdl:output message="tns:GetConsignmentsByDateSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetDepositedConsignmentsByDate">
+            <wsdl:input message="tns:GetDepositedConsignmentsByDateSoapIn"/>
+            <wsdl:output message="tns:GetDepositedConsignmentsByDateSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetPickup">
+            <wsdl:input message="tns:GetPickupSoapIn"/>
+            <wsdl:output message="tns:GetPickupSoapOut"/>
+        </wsdl:operation>
+        <wsdl:operation name="ReschedulePickup">
+            <wsdl:input message="tns:ReschedulePickupSoapIn"/>
+            <wsdl:output message="tns:ReschedulePickupSoapOut"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="AccessPointSoap" type="tns:AccessPointSoap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="CancelBOL">
+            <soap:operation soapAction="https://spdxws.gr/CancelBOL" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CancelBOLandOrder">
+            <soap:operation soapAction="https://spdxws.gr/CancelBOLandOrder" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateBOL">
+            <soap:operation soapAction="https://spdxws.gr/CreateBOL" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateBOLwithOrder">
+            <soap:operation soapAction="https://spdxws.gr/CreateBOLwithOrder" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateSession">
+            <soap:operation soapAction="https://spdxws.gr/CreateSession" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetBOLPdf">
+            <soap:operation soapAction="https://spdxws.gr/GetBOLPdf" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetBOLSummaryPdf">
+            <soap:operation soapAction="https://spdxws.gr/GetBOLSummaryPdf" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetBranches">
+            <soap:operation soapAction="https://spdxws.gr/GetBranches" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetLastCheckpoint">
+            <soap:operation soapAction="https://spdxws.gr/GetLastCheckpoint" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetOrderLastCheckpoint">
+            <soap:operation soapAction="https://spdxws.gr/GetOrderLastCheckpoint" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetTraceByClientKey">
+            <soap:operation soapAction="https://spdxws.gr/GetTraceByClientKey" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetTraceByDate">
+            <soap:operation soapAction="https://spdxws.gr/GetTraceByDate" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetTraceByVoucher">
+            <soap:operation soapAction="https://spdxws.gr/GetTraceByVoucher" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DestroySession">
+            <soap:operation soapAction="https://spdxws.gr/DestroySession" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetCODByVoucher">
+            <soap:operation soapAction="https://spdxws.gr/GetCODByVoucher" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetVoucherFromCustomerKey">
+            <soap:operation soapAction="https://spdxws.gr/GetVoucherFromCustomerKey" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetVoucherPOD">
+            <soap:operation soapAction="https://spdxws.gr/GetVoucherPOD" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CancelPickup">
+            <soap:operation soapAction="https://spdxws.gr/CancelPickup" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreatePickup">
+            <soap:operation soapAction="https://spdxws.gr/CreatePickup" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetConsignmentsByDate">
+            <soap:operation soapAction="https://spdxws.gr/GetConsignmentsByDate" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDepositedConsignmentsByDate">
+            <soap:operation soapAction="https://spdxws.gr/GetDepositedConsignmentsByDate" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetPickup">
+            <soap:operation soapAction="https://spdxws.gr/GetPickup" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ReschedulePickup">
+            <soap:operation soapAction="https://spdxws.gr/ReschedulePickup" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="AccessPointSoap12" type="tns:AccessPointSoap">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="CancelBOL">
+            <soap12:operation soapAction="https://spdxws.gr/CancelBOL" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CancelBOLandOrder">
+            <soap12:operation soapAction="https://spdxws.gr/CancelBOLandOrder" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateBOL">
+            <soap12:operation soapAction="https://spdxws.gr/CreateBOL" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateBOLwithOrder">
+            <soap12:operation soapAction="https://spdxws.gr/CreateBOLwithOrder" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateSession">
+            <soap12:operation soapAction="https://spdxws.gr/CreateSession" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetBOLPdf">
+            <soap12:operation soapAction="https://spdxws.gr/GetBOLPdf" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetBOLSummaryPdf">
+            <soap12:operation soapAction="https://spdxws.gr/GetBOLSummaryPdf" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetBranches">
+            <soap12:operation soapAction="https://spdxws.gr/GetBranches" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetLastCheckpoint">
+            <soap12:operation soapAction="https://spdxws.gr/GetLastCheckpoint" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetOrderLastCheckpoint">
+            <soap12:operation soapAction="https://spdxws.gr/GetOrderLastCheckpoint" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetTraceByClientKey">
+            <soap12:operation soapAction="https://spdxws.gr/GetTraceByClientKey" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetTraceByDate">
+            <soap12:operation soapAction="https://spdxws.gr/GetTraceByDate" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetTraceByVoucher">
+            <soap12:operation soapAction="https://spdxws.gr/GetTraceByVoucher" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DestroySession">
+            <soap12:operation soapAction="https://spdxws.gr/DestroySession" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetCODByVoucher">
+            <soap12:operation soapAction="https://spdxws.gr/GetCODByVoucher" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetVoucherFromCustomerKey">
+            <soap12:operation soapAction="https://spdxws.gr/GetVoucherFromCustomerKey" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetVoucherPOD">
+            <soap12:operation soapAction="https://spdxws.gr/GetVoucherPOD" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CancelPickup">
+            <soap12:operation soapAction="https://spdxws.gr/CancelPickup" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreatePickup">
+            <soap12:operation soapAction="https://spdxws.gr/CreatePickup" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetConsignmentsByDate">
+            <soap12:operation soapAction="https://spdxws.gr/GetConsignmentsByDate" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDepositedConsignmentsByDate">
+            <soap12:operation soapAction="https://spdxws.gr/GetDepositedConsignmentsByDate" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetPickup">
+            <soap12:operation soapAction="https://spdxws.gr/GetPickup" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ReschedulePickup">
+            <soap12:operation soapAction="https://spdxws.gr/ReschedulePickup" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="AccessPoint">
+        <wsdl:port name="AccessPointSoap" binding="tns:AccessPointSoap">
+            <soap:address location="https://devspdxws.gr/accesspoint.asmx"/>
+        </wsdl:port>
+        <wsdl:port name="AccessPointSoap12" binding="tns:AccessPointSoap12">
+            <soap12:address location="https://devspdxws.gr/accesspoint.asmx"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
