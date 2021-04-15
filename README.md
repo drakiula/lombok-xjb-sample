@@ -1,0 +1,1 @@
+# lombok-xjb-sample
