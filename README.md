@@ -7,4 +7,4 @@ Run
 mvn clean compile
 ```
 
-Then loook into the **target** dir for compiled classes and generated soources.
+Then look into the **target** directory for compiled classes and generated soources.
