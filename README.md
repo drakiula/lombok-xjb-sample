@@ -9,7 +9,14 @@ mvn clean compile
 
 Then look into the **target** directory for compiled classes and generated soources.
 
-Make sure to update the XPath within the bindings file, according to your schema format.
+Make sure to update the XPath within the bindings file, according to your schema format, namingly the **node** attribute for both
+```xml
+<jaxb:bindings schemaLocation="schema.wsdl" node="/wsdl:definitions/wsdl:types/s:schema">
+```
+and
+```xml
+<jaxb:bindings multiple="true" node="//s:complexType">
+```
 
 Also, within the POM, make sure to leave the 
 ```xml
