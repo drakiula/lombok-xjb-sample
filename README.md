@@ -7,7 +7,7 @@ Run
 mvn clean compile
 ```
 
-Then look into the **target** directory for compiled classes and generated soources.
+Then look into the **target** directory for compiled classes and generated sources.
 
 Make sure to update the XPath within the bindings file, according to your schema format, namingly the **node** attribute for both
 ```xml
